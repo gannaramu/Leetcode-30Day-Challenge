@@ -1,5 +1,5 @@
 Solution
-Approach 1: Detect Cycles with a HashSet
+# Approach 1: Detect Cycles with a HashSet
 Intuition
 
 A good way to get started with a question like this is to make a couple of examples. Let's start with the number 77. The next number will be 4949 (as 7^2 = 497 
@@ -33,7 +33,7 @@ For a number with 33 digits, it's impossible for it to ever go larger than 24324
 
 Even though you don't need to handle the 3rd case in the code, you still need to understand why it can never happen, so that you can justify why you didn't handle it.
 
-Algorithm
+# Algorithm
 ```
 def isHappy(self, n: int) -> bool:
 
@@ -87,7 +87,7 @@ It might seem worrying that we're simply dropping such "large" constants. But th
 Think about what would happen if you had a number with 1 million digits in it. The first step of the algorithm would process those million digits, and then the next value would be, at most (pretend all the digits are 9), be 81 * 1,000,000 = 81,000,00081∗1,000,000=81,000,000. In just one step, we've gone from a million digits, down to just 8. The largest possible 8 digit number we could get is 99,9999,99999,9999,999, which then goes down to 81 * 8 = 64881∗8=648. And then from here, the cost will be the same as if we'd started with a 3 digit number. Starting with 2 million digits (a massively larger number than one with a 1 million digits) would only take roughly twice as long, as again, the dominant part is summing the squares of the 2 million digits, and the rest is tiny in comparison.
 
 
-#Approach 2: Floyd's Cycle-Finding Algorithm
+# Approach 2: Floyd's Cycle-Finding Algorithm
 Intuition
 
 The chain we get by repeatedly calling getNext(n) is an implicit LinkedList. Implicit means we don't have actual LinkedNode's and pointers, but the data does still form a LinkedList structure. The starting number is the head "node" of the list, and all the other numbers in the chain are nodes. The next pointer is obtained with our getNext(n) function above.
@@ -135,7 +135,7 @@ Once both pointers are in the cycle (which will take constant time to happen) th
 Space complexity : O(1)O(1). For this approach, we don't need a HashSet to detect the cycles. The pointers require constant extra space.
 
 
-Approach 3: Hardcoding the Only Cycle (Advanced)
+# Approach 3: Hardcoding the Only Cycle (Advanced)
 Intuition
 
 The previous two approaches are the ones you'd be expected to come up with in an interview. This third approach is not something you'd write in an interview, but is aimed at the mathematically curious among you as it's quite interesting.
