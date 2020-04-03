@@ -34,7 +34,23 @@ For a number with 33 digits, it's impossible for it to ever go larger than 24324
 Even though you don't need to handle the 3rd case in the code, you still need to understand why it can never happen, so that you can justify why you didn't handle it.
 
 Algorithm
+```
+def isHappy(self, n: int) -> bool:
 
+    def get_next(n):
+        total_sum = 0
+        while n > 0:
+            n, digit = divmod(n, 10)
+            total_sum += digit ** 2
+        return total_sum
+
+    seen = set()
+    while n != 1 and n not in seen:
+        seen.add(n)
+        n = get_next(n)
+
+    return n == 1
+```
 There are 2 parts to the algorithm we'll need to design and code.
 
 Given a number nn, what is its next number?
