@@ -116,7 +116,7 @@ If you do this, you'll find there's only one cycle: 4 \rightarrow 16 \rightarrow
 Therefore, we can just hardcode a HashSet containing these numbers, and if we ever reach one of them, then we know we're in the cycle. There's no need to keep track of where we've been previously.
 
 Algorithm
-
+```python
 def isHappy(self, n: int) -> bool:
 
     cycle_members = {4, 16, 37, 58, 89, 145, 42, 20}
@@ -132,6 +132,7 @@ def isHappy(self, n: int) -> bool:
         n = get_next(n)
 
     return n == 1
+```
 Complexity Analysis
 
 Time complexity : O(\log n)O(logn). Same as above.
